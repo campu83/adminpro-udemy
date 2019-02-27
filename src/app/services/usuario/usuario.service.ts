@@ -15,7 +15,7 @@ export class UsuarioService {
   usuario: Usuario;
   token: string;
 
-  constructor(public http: HttpClient, public router: Router, public _subirArchivoSerice: SubirArchivoService) {
+  constructor(public http: HttpClient, public router: Router, public _subirArchivoService: SubirArchivoService) {
     this.cargarStorage();
   }
 
@@ -94,8 +94,11 @@ export class UsuarioService {
     url += '?token=' + this.token;
     return this.http.put( url, usuario )
     .pipe(map( (resp: any) => {
+      // esto solo lo hago en el caso de que el usuario modificado sea el mio (ajustes de perfil)
+      if ( usuario._id === this.usuario._id ) {
+        this.guardarStorage( resp.usuario._id, this.token, resp.usuario );
+      }
 
-      this.guardarStorage( resp.usuario._id, this.token, resp.usuario );
       swal('Usuario actualizado', usuario.nombre, 'success');
 
       return true;
@@ -103,7 +106,7 @@ export class UsuarioService {
    }
 
    cambiarImagen( archivo: File, id: string ) {
-      this._subirArchivoSerice.subirArchivo( archivo, 'usuarios', id)
+      this._subirArchivoService.subirArchivo( archivo, 'usuarios', id)
       .then( (resp: any) => {
         this.usuario.img = resp.usuario.img;
         swal( 'Imagen actualizada', this.usuario.nombre, 'success' );
@@ -112,5 +115,27 @@ export class UsuarioService {
       .catch( resp => {
         console.log( resp );
       });
+   }
+
+   cargarUsuarios( desde: number = 0 ) {
+    const url = URL_SERVICIOS + '/usuario?desde=' + desde;
+
+    return this.http.get( url );
+   }
+
+   buscarUsuarios( termino: string ) {
+     const url = URL_SERVICIOS + '/busqueda/coleccion/usuario/' + termino;
+
+     return this.http.get( url ).pipe(map( (resp: any) => resp.usuario));
+   }
+
+   borrarUsuario( id: string ) {
+     let url = URL_SERVICIOS + '/usuario/' + id;
+     url += '?token=' + this.token;
+     return this.http.delete( url )
+     .pipe(map( resp => {
+      swal('Usuario borrado!', 'El usuario ha sido eliminado correctamente', 'success');
+      return true;
+     }));
    }
 }
