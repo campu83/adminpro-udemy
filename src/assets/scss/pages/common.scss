@@ -6,24 +6,25 @@ File: scss
 */
 
 @import '../variable';
+
 /*============================================================== 
  For all pages 
  ============================================================== */
 
-#main-wrapper { 
+#main-wrapper {
     width: 100%;
     overflow: hidden;
 }
 
-.boxed #main-wrapper {  
+.boxed #main-wrapper {
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.1);
     .sidebar-footer {
-        position: absolute; 
+        position: absolute;
     }
-    .topbar{
+    .topbar {
         max-width: 1300px;
     }
     .footer {
@@ -53,6 +54,7 @@ File: scss
     }
 }
 
+
 /*******************
  Topbar
 *******************/
@@ -68,7 +70,7 @@ File: scss
     }
     .right-side-panel {
         top: 70px;
-        height: calc(100% - 70px); 
+        height: calc(100% - 70px);
     }
 }
 
@@ -147,6 +149,7 @@ File: scss
                 padding: 10px 15px;
                 .u-img {
                     width: 70px;
+                    height: 70px;
                     display: inline-block;
                     vertical-align: top;
                     img {
@@ -242,6 +245,7 @@ File: scss
         }
     }
 }
+
 
 /*******************
 Notify
@@ -372,6 +376,8 @@ Notify
         }
     }
 }
+
+
 /*******************
  Breadcrumb and page title
 *******************/
@@ -386,7 +392,7 @@ Notify
     }
     .breadcrumb {
         padding: 0px;
-        margin-bottom:0px;
+        margin-bottom: 0px;
         background: transparent;
         font-size: 14px;
         li {
@@ -418,6 +424,7 @@ Notify
     display: inline-block;
     vertical-align: middle;
 }
+
 
 /*******************
  Right side toggle
@@ -544,6 +551,7 @@ Notify
         }
     }
 }
+
 
 /*******************
  Right side toggle
@@ -680,6 +688,7 @@ ul#themecolors {
     /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, $dark 0%, $dark 23%, $danger 23%, $danger 99%);
 }
+
 
 /*******************
  Footer
@@ -873,6 +882,7 @@ html body .waves-notransition {
     display: block;
 }
 
+
 /*******************
 List inline
 *******************/
@@ -881,6 +891,7 @@ ul.list-inline li {
     display: inline-block;
     padding: 0 8px;
 }
+
 
 /*******************
 Table td vertical middle
@@ -903,18 +914,20 @@ Table td vertical middle
     }
 }
 
+
 /*******************
 Other comon js for all pages
 *******************/
+
 .calendar-events {
-  padding: 8px 10px;
-  border: 1px solid $white;
-  cursor: move;
+    padding: 8px 10px;
+    border: 1px solid $white;
+    cursor: move;
     &:hover {
         border: 1px dashed $border;
     }
     i {
-      margin-right: 8px;
+        margin-right: 8px;
     }
 }
 
@@ -924,7 +937,6 @@ Other comon js for all pages
     overflow-x: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
-
 
 .single-column {
     .left-sidebar {
@@ -969,10 +981,27 @@ body .jqstooltip {
     border-radius: 60px;
 }
 
+
 /*******************
 Notification page Jquery toaster
 ******************/
-.jq-icon-info {background-color: $info; color:$white;}
-.jq-icon-success {background-color: $success; color:$white;}
-.jq-icon-error {background-color: $danger; color:$white;}
-.jq-icon-warning{ background-color:$warning; color:$white;}
+
+.jq-icon-info {
+    background-color: $info;
+    color: $white;
+}
+
+.jq-icon-success {
+    background-color: $success;
+    color: $white;
+}
+
+.jq-icon-error {
+    background-color: $danger;
+    color: $white;
+}
+
+.jq-icon-warning {
+    background-color: $warning;
+    color: $white;
+}
