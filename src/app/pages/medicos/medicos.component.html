@@ -30,7 +30,7 @@
                     <tbody>
                         <tr *ngFor="let medico of medicos">
                             <td>
-                                <img [src]="medico.img | imagen:'medico'" class="w50 img-circle">
+                                <img [src]="medico.img | imagen:'medico'" class="w50 h50 img-circle">
                             </td>
                             <td>{{ medico.nombre }}</td>
                             <td> {{ medico.hospital.nombre }}</td>

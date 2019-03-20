@@ -15,14 +15,20 @@ import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { VerificaTokenGuard } from '../services/guards/verifica-token.guard';
 
 const pagesRoutes: Routes = [
+   /* Se quita esto para hacer uso del lazyload
     {
         path: '',
         component: PagesComponent,
         canActivate: [ LoginGuardGuard ],
-        children: [
-            { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard'} },
+        children: [*/
+            { path: 'dashboard',
+             component: DashboardComponent,
+             canActivate: [ VerificaTokenGuard ],
+              data: { titulo: 'Dashboard'}
+            },
             { path: 'progress', component: ProgressComponent, data: { titulo: 'Progress'} },
             { path: 'graficas1', component: Graficas1Component, data: { titulo: 'Gráficas'} },
             { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas'} },
@@ -36,8 +42,8 @@ const pagesRoutes: Routes = [
             { path: 'medicos', component: MedicosComponent, data: { titulo: 'Mantenimiento de Médicos'} },
             { path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Actualizar Médico'} },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
-        ]
-    }
+   //     ]
+  //  }
 ];
 
 export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes );

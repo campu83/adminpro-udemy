@@ -55,7 +55,7 @@ export class RxjsComponent implements OnInit, OnDestroy {
         if ( contador === 2 ) {
           //  clearInterval( intervalo );
           observer.error('Auxilio!'); // ejecuta el error del intervalo. El error solo se imprime en el caso
-          // de que se hayan terminado la ejecución incluyendo los reintentos en el caso de que los hubiera. 
+          // de que se hayan terminado la ejecución incluyendo los reintentos en el caso de que los hubiera.
         }
 
       }, 1000);
@@ -89,7 +89,7 @@ export class RxjsComponent implements OnInit, OnDestroy {
        /* if ( contador === 2 ) {
           //  clearInterval( intervalo );
           observer.error('Auxilio!'); // ejecuta el error del intervalo. El error solo se imprime en el caso
-          // de que se hayan terminado la ejecución incluyendo los reintentos en el caso de que los hubiera. 
+          // de que se hayan terminado la ejecución incluyendo los reintentos en el caso de que los hubiera.
         }*/
 
       }, 1000);
@@ -128,7 +128,7 @@ export class RxjsComponent implements OnInit, OnDestroy {
        /* if ( contador === 2 ) {
           //  clearInterval( intervalo );
           observer.error('Auxilio!'); // ejecuta el error del intervalo. El error solo se imprime en el caso
-          // de que se hayan terminado la ejecución incluyendo los reintentos en el caso de que los hubiera. 
+          // de que se hayan terminado la ejecución incluyendo los reintentos en el caso de que los hubiera.
         }*/
 
       }, 1000);
